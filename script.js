@@ -56,7 +56,7 @@ function cardsNumbers(product){
         localStorage.setItem("cardsNumbers",1)
         document.querySelector(".basket span").textContent = 1
     }
-    setItems(product)
+    setItems(product);
 }
 
 function setItems(product){
@@ -64,13 +64,15 @@ function setItems(product){
     cardItems = JSON.parse(cardItems)
     if(cardItems != null){
         cardItems[product.tag].inCard += 1
+    }else{
+        product.inCard = 1;
+        cardItems = {
+            [product.tag] : product
+        }
     }
-    product.inCard = 1;
-    cardItems = {
-    [product.tag] : product
-    }
+   
     
-    localStorage.setItem("productsInCard",JSON.stringify(cardItems))
+    localStorage.setItem("productsInCard", JSON.stringify(cardItems))
 }
 
 

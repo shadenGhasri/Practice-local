@@ -60,12 +60,14 @@ function cardsNumbers(product){
 }
 
 function setItems(product){
+    let cardItems = localStorage("productsInCard")
+    cardItems = JSON.parse(cardItems)
     product.inCard = 1;
-    let cardItems = {
+    cardItems = {
     [product.tag] : product
     }
     
-    localStorage.setItem("productsInCard",cardItems)
+    localStorage.setItem("productsInCard",JSON.stringify(cardItems))
 }
 
 

@@ -80,3 +80,8 @@ header.sticky ul li a{
 .container-icon a:hover{
     font-size: large;
 }
+
+.container{
+    flex-wrap: wrap;
+}
+ 

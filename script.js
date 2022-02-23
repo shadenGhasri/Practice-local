@@ -63,6 +63,12 @@ function setItems(product){
     let cardItems = localStorage("productsInCard")
     cardItems = JSON.parse(cardItems)
     if(cardItems != null){
+        if(cardItems[product.tag] == undefined){
+            cardItems={
+                ...cardItems,
+            [product.tag]: product
+            }
+        }
         cardItems[product.tag].inCard += 1
     }else{
         product.inCard = 1;
@@ -73,6 +79,7 @@ function setItems(product){
    
     
     localStorage.setItem("productsInCard", JSON.stringify(cardItems))
+   
 }
 
 

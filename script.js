@@ -1,8 +1,10 @@
+// scroll navbar
 window.addEventListener("scroll",()=>{
     const header = document.querySelector("header")
     header.classList.toggle("sticky",window.scrollY > 0)
 })
 
+// add product
 const addIcons = document.querySelectorAll(".add-icon")
 
 let products = [
@@ -26,11 +28,12 @@ let products = [
     }
 ]
 
-for (let addIcon of addIcons) {
-    addIcon.addEventListener("click",()=>{
-        cardsNumbers()
+for(let i=0 ; i < addIcons.length ; i++ ){
+    addIcons[i].addEventListener("click",()=> {
+        cardsNumbers(products[i])
     })
 }
+
 
 // baraye inke ba refresh tedade sabad napare
 function onLoadcardNumbers(){
@@ -40,7 +43,8 @@ function onLoadcardNumbers(){
     }   
 }
 
-function cardsNumbers(){
+function cardsNumbers(product){
+   
     // baraye inke ba refresh etelaat napare az local browser bahre mijueim
     let productNumbers = localStorage.getItem("cardsNumbers")
     // khate bala baes mishe harbar click ro sabt kone amma addadi k mide stringe va bayad number beshe
@@ -52,5 +56,17 @@ function cardsNumbers(){
         localStorage.setItem("cardsNumbers",1)
         document.querySelector(".basket span").textContent = 1
     }
+    setItems(product)
 }
+
+function setItems(product){
+    product.inCard = 1;
+    let cardItems = {
+    [product.tag] : product
+    }
+    
+    localStorage.setItem("productsInCard",cardItems)
+}
+
+
 onLoadcardNumbers()

@@ -43,7 +43,7 @@ function onLoadcardNumbers(){
 function cardsNumbers(){
     // baraye inke ba refresh etelaat napare az local browser bahre mijueim
     let productNumbers = localStorage.getItem("cardsNumbers")
-    // khate bala baes mishe harbar click to sabt kone amma addadi k mide stringe va bayad number beshe
+    // khate bala baes mishe harbar click ro sabt kone amma addadi k mide stringe va bayad number beshe
     productNumbers = parseInt(productNumbers)
     if(productNumbers){
         localStorage.setItem("cardsNumbers",productNumbers + 1)

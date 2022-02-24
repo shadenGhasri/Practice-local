@@ -83,5 +83,6 @@ header.sticky ul li a{
 
 .container{
     flex-wrap: wrap;
+    gap: 2rem;
 }
  

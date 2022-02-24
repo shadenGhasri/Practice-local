@@ -7,21 +7,21 @@ window.addEventListener("scroll",()=>{
 const products = [
     {
         name : "mascara",
-        tag : "lash lift",
+        image: "img/gold.jpg",
         price : "20",
-        inCard : 0
+        id : 0
     },
     {
         name : "lip Stick",
-        tag : "mac",
+        image:"img/lips.jpg",
         price : "13",
-        inCard : 0
+        id : 0
     },
     {
         name : "Eye Liner",
-        tag : "black Eyeliner",
+        image:"img/pen.jpg",
         price : "16",
-        inCard : 0
+        id : 0
     }
 ]
 

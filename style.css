@@ -73,16 +73,36 @@ header.sticky ul li a{
     height: 200px;
     
 }
-.container-icon a{
+.add-icon{
+    padding-right: 1rem;
     color: #000;
-    padding-right: 10px;
 }
-.container-icon a:hover{
+
+
+.add-icon:hover{
     font-size: large;
-}
+    color: rgb(153, 10, 10);
+} 
 
 .container{
     flex-wrap: wrap;
     gap: 2rem;
+}
+
+.container__card{
+    background-color: rgb(154, 182, 218);
+    width: 60rem;
+    margin-left: 10rem;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.card__title{
+    color: rgb(209, 66, 159);
+}
+.card__liner{
+    width:42rem ;
+    height: 0.1rem;
+    background-color: #fff;
+    margin-left: 9rem;
 }
  

@@ -54,7 +54,7 @@ function cardsNumbers(product){
 }
 
 function setItems(product){
-    let cardItems = localStorage("productsInCard")
+    let cardItems = localStorage.getItem("productsInCard")
     cardItems = JSON.parse(cardItems)
     if(cardItems != null){
         if(cardItems[product.tag] == undefined){

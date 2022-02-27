@@ -31,8 +31,8 @@ let card = {
 }
 
 const renderProducts = ()=> {
-   const productDiv = document.querySelector(".container");
-   
+    
+    const productDiv = document.querySelector(".container");
    products.forEach((item,index)=>{
 
     const cardDiv1 = document.createElement("div")
@@ -79,8 +79,8 @@ const renderProducts = ()=> {
 
     containerIcon.append(a1,a2)
 
-    // const getIcons = document.querySelectorAll(".bi-cart-plus")
-    // for(let icon of getIcons){
+    // const getIcons = document.querySelectorAll(".add-icon")
+    // for(let icon of productDiv){
     //     icon.addEventListener("click", addToCard(index))
     // }
     
@@ -89,89 +89,89 @@ const renderProducts = ()=> {
 
 }
 
-// const renderCardItems = ()=> {
-//     const cardDiv = document.querySelector(".card__items");
-//     const cardItemsText1 = document.querySelector(".card__items-text")
-//     // cardDiv.innerHTML = ""
-//     const totalPriceEl = document.querySelector(".card__total-price")
-//     let totalPrice = 0
+const renderCardItems = ()=> {
+    const cardDiv = document.querySelector(".card__items");
+    const cardItemsText1 = document.querySelector(".card__items-text")
+    // cardDiv.innerHTML = ""
+    const totalPriceEl = document.querySelector(".card__total-price")
+    let totalPrice = 0
 
-//     if(card.items.length === 0){
-//         cardItemsText1.textContent =   `Your basket is empty`
-//     }
+    if(card.items.length === 0){
+        cardItemsText1.textContent =   `Your basket is empty`
+    }
 
-//     card.items.forEach(item =>{
-//         totalPrice += item.total
+    card.items.forEach(item =>{
+        totalPrice += item.total
 
-//         const cardItemDiv = document.createElement("div")
-//         cardItemDiv.classList.add("card__item")
-//         cardDiv.append(cardItemDiv)
+        const cardItemDiv = document.createElement("div")
+        cardItemDiv.classList.add("card__item")
+        cardDiv.append(cardItemDiv)
 
-//         const divCol1 = document.createElement("div")
-//         divCol1.classList.add("col-md-4")
-//         cardItemDiv.appendChild(divCol1)
+        const divCol1 = document.createElement("div")
+        divCol1.classList.add("col-md-4")
+        cardItemDiv.appendChild(divCol1)
 
-//         const aRemove = document.createElement("a")
-//         aRemove.href = ""
-//         const iRemove = document.createElement("i")
-//         iRemove.classList.add("bi","bi-file-earmark-x")
-//         aRemove.appendChild(iRemove)
-//         divCol1.appendChild(aRemove)
+        const aRemove = document.createElement("a")
+        aRemove.href = ""
+        const iRemove = document.createElement("i")
+        iRemove.classList.add("bi","bi-file-earmark-x")
+        aRemove.appendChild(iRemove)
+        divCol1.appendChild(aRemove)
 
-//         const divCol2 = document.createElement("div")
-//         divCol2.classList.add("col-md-4")
-//         cardItemDiv.appendChild(divCol2)
-//         const qtyDiv = document.createElement("div")
-//         qtyDiv.classList.add("qty")
-//         qtyDiv.textContent =    `${item.qty}`
-//         divCol2.appendChild(qtyDiv)
+        const divCol2 = document.createElement("div")
+        divCol2.classList.add("col-md-4")
+        cardItemDiv.appendChild(divCol2)
+        const qtyDiv = document.createElement("div")
+        qtyDiv.classList.add("qty")
+        qtyDiv.textContent =    `${item.qty}`
+        divCol2.appendChild(qtyDiv)
 
-//         const divCol3 = document.createElement("div")
-//         divCol3.classList.add("col-md-4")
-//         cardItemDiv.appendChild(divCol3)
-//         const h3ForDiv = document.createElement("h3")
-//         h3ForDiv.classList.add("card__item-title")
-//         h3ForDiv.textContent =  `${item.name}`  
-//         divCol3.appendChild(h3ForDiv)
+        const divCol3 = document.createElement("div")
+        divCol3.classList.add("col-md-4")
+        cardItemDiv.appendChild(divCol3)
+        const h3ForDiv = document.createElement("h3")
+        h3ForDiv.classList.add("card__item-title")
+        h3ForDiv.textContent =  `${item.name}`  
+        divCol3.appendChild(h3ForDiv)
 
 
 
-//     })
-//     totalPriceEl.textContent =  `total: $${totalPrice}`
+    })
+    totalPriceEl.textContent =  `total: $${totalPrice}`
    
-// }
+}
 
-// const addToCard = (productIndex) =>{
-//     const product = products[productIndex]
+const addToCard = (productIndex) =>{
+    const product = products[productIndex]
     
-//     let existingProduct = false
-//     let newCardItems = card.items.reduce((state,item)=>{
-//         if (item.name === product.name){
-//             existingProduct = true
-//             const newItem = {
-//                 ...item ,
-//                 qty : item.qty + 1 ,
-//                 total : (item.qty + 1) * item.price
-//             }
-//             return [...state , newItem]
-//         }
-//         return [...state , item]
-//     } , [])
-//     if(!existingProduct){
-//         newCardItems.push(
-//             {
-//                 ...product,
-//                 qty:1,
-//                 total:product.price
-//             }
-//         )
-//     }
-//     card = {
-//         ...card,
-//         items : newCardItems,
-//     }
-//     renderCardItems()
-// }
+    let existingProduct = false
+    let newCardItems = card.items.reduce((state,item)=>{
+        if (item.name === product.name){
+            existingProduct = true
+            const newItem = {
+                ...item ,
+                qty : item.qty + 1 ,
+                total : (item.qty + 1) * item.price
+            }
+            return [...state , newItem]
+        }
+        return [...state , item]
+    } , [])
+    if(!existingProduct){
+        newCardItems.push(
+            {
+                ...product,
+                qty:1,
+                total:product.price
+            }
+        )
+    }
+    card = {
+        ...card,
+        items : newCardItems,
+    }
+    renderCardItems()
+}
 
 
 
@@ -179,4 +179,4 @@ const renderProducts = ()=> {
 renderProducts()
 // addToCard()
 
-// renderCardItems()
+renderCardItems()
